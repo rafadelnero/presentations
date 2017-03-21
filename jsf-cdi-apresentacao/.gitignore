@@ -1,0 +1,11 @@
+/target/
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+amazon-test/bin/
+amazon-test/.idea
+amazon-test/lib/
+amazon-test/*.iml
+.classpath
+.project
+.settings

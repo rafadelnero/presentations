@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/_template.xhtml">
+
+	<ui:define name="titulo">
+		<p:outputPanel>Showcase de componentes do Primefaces</p:outputPanel>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="frmShowcaseComponente">
+
+			<p:fieldset legend="Showcase dos componentes JSF - Datatable">
+
+				<!-- Datatable básico -->
+				<p:dataTable var="pessoa" value="#{datatableBean.pessoas}">
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{pessoa.nome}" />
+					</p:column>
+
+					<p:column headerText="Idade">
+						<h:outputText value="#{pessoa.idade}" />
+					</p:column>
+
+				</p:dataTable>
+
+				<p:dataTable var="pessoa" value="#{datatableBean.pessoas}" rows="5"
+					paginator="true" style="margin-top: 20px;"
+					paginatorAlwaysVisible="false" paginatorPosition="bottom"
+					rowsPerPageTemplate="5,10" >
+					
+					<p:column headerText="Nome">
+						<h:outputText value="#{pessoa.nome}" />
+					</p:column>
+
+					<p:column headerText="Idade">
+						<h:outputText value="#{pessoa.idade}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</p:fieldset>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/_template.xhtml">
+
+	<ui:define name="titulo">
+		<p:outputPanel>Wizard</p:outputPanel>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="frmWizardPessoa">
+
+			<p:fieldset legend="Showcase dos componentes JSF - Wizard">
+
+				<p:wizard flowListener="#{wizardPessoaBean.onFlowProcess}">
+
+					<p:tab id="tabPessoaPasso1" title="Passo 1">
+
+						<ui:include src="/componentes/wizard/pessoa-passo-1.xhtml" />
+
+					</p:tab>
+
+					<p:tab id="tabPessoaPasso2" title="Passo 2">
+						
+						<ui:include src="/componentes/wizard/pessoa-passo-2.xhtml" />
+						
+					</p:tab>
+
+					<p:tab id="tabPessoaPasso3" title="Passo 3 - Confirme o cadastro">
+						
+						<ui:include src="/componentes/wizard/pessoa-passo-3.xhtml" />
+
+					</p:tab>
+					
+				</p:wizard>
+
+			</p:fieldset>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

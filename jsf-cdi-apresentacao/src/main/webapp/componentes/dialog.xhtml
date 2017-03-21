@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/_template.xhtml">
+
+	<ui:define name="titulo">
+		<p:outputPanel>Showcase de componentes do Primefaces</p:outputPanel>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="frmShowcaseComponente">
+
+			<p:fieldset legend="Showcase dos componentes JSF - Dialog">
+
+				<h:panelGrid columns="1" cellpadding="5">
+					
+					<p:commandButton value="Dialog básico" type="button"
+						onclick="PF('dlgBasic').show();" />
+						
+						<p:commandButton value="Invocando Dialog do Bean" action="#{dialogBean.invocaDialog}" process="@this" 
+						 update="dlgBasic"/>
+
+				</h:panelGrid>
+
+				<p:dialog id="dlgBasic" header="Dialog Básico" widgetVar="dlgBasic" minHeight="40">
+					<h:outputText value="#{dialogBean.descricaoDialog}" />
+				</p:dialog>
+
+			</p:fieldset>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>
