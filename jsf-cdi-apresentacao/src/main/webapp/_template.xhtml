@@ -10,7 +10,7 @@
 <h:body>
 
 	<div id="cabecalho">
-		<h:panelGrid columns="2">
+		<h:panelGrid columns="3">
 			<h:graphicImage library="img" name="logo.png" />
 			<h:form>
 
@@ -23,10 +23,11 @@
 					</p:submenu>
 
 					<p:submenu label="Escopos">
-						<p:menuitem value="Aplication Scoped"
-							url="/escopos/teste-application-scoped.xhtml" />
-						<p:menuitem value="Session Scoped"
-							url="/escopos/teste-session-scoped.xhtml" />
+						<p:menuitem value="Aplication Scoped" url="/escopos/teste-application-scoped.xhtml" />
+						
+						<p:menuitem value="Session Scoped" url="/escopos/teste-session-scoped.xhtml" />
+
+						<p:menuitem value="Request Scoped" url="/escopos/teste-request-scoped.xhtml" />
 					</p:submenu>
 
 					<p:menuitem value="Fases do JSF" url="/fases-jsf.xhtml" />
@@ -53,7 +54,11 @@
 
 				</p:menubar>
 			</h:form>
+			
+			<h:graphicImage library="img" name="meetup-sp.png" style="margin-left:20px;" />
+		
 		</h:panelGrid>
+		
 
 		<p:growl id="messages" autoUpdate="true" />
 
@@ -69,7 +74,7 @@
 
 	<div style="clear: both;" />
 
-	<div id="rodape" style="width: 98.9%; position: fixed; bottom: 0;">
+	<div id="rodape" style="width: 98.9%; position: relative; bottom: 0;">
 
 		<p:fieldset style="text-align:center;">
 

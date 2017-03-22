@@ -8,11 +8,6 @@
 		
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>br.com.caelum.livraria.modelo.Usuario</class>
-		<class>br.com.caelum.livraria.modelo.Livro</class>
-		<class>br.com.caelum.livraria.modelo.Autor</class>
-		<class>br.com.caelum.livraria.modelo.Venda</class>
-
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/livrariadb" />
