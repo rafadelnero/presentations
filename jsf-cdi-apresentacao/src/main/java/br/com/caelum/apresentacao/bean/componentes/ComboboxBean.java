@@ -12,12 +12,15 @@ import javax.inject.Named;
 import br.com.caelum.apresentacao.mock.IdadeMock;
 import br.com.caelum.apresentacao.mock.PessoaMock;
 import br.com.caelum.apresentacao.modelo.Pessoa;
+import br.com.caelum.apresentacao.service.PessoaService;
 
 @Named
 @ViewScoped
 public class ComboboxBean implements Serializable {
 
 	private static final long serialVersionUID = -7318847189794096642L;
+	
+	private PessoaService pessoaService = new PessoaService();
 	
 	private long idPessoaSelecionada;
 
@@ -35,13 +38,7 @@ public class ComboboxBean implements Serializable {
 	}
 	
 	public void filtraPessoasComIdadeMaioresQueEssa(AjaxBehaviorEvent event) {
-		pessoasFiltradas.clear();
-		
-		for (Pessoa pessoa : todasPessoas) {
-			if (pessoa.getIdade() >= idadeMinimaSelecionada) {
-				pessoasFiltradas.add(pessoa);
-			}
-		}
+		pessoasFiltradas = pessoaService.filtraPorIdade(todasPessoas, idadeMinimaSelecionada);
 	}
 	
 	public List<Pessoa> getPessoasFiltradas() {

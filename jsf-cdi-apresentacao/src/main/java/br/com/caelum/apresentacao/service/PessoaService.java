@@ -1,12 +1,15 @@
 package br.com.caelum.apresentacao.service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
+import br.com.caelum.apresentacao.mock.PessoaMock;
 import br.com.caelum.apresentacao.modelo.Pessoa;
 
 @RequestScoped
@@ -30,5 +33,36 @@ public class PessoaService implements Serializable {
 		new DefaultTreeNode(new Pessoa(10, "Filho Zezinho", 46), paiJose);
 		
 		return root;
+	}
+
+	public List<Pessoa> buscaPessoasPor(int first, int pageSize) {
+		return PessoaMock.getPessoas().subList(first, pageSize + first);
+	}
+
+	public List<Pessoa> filtraPorIdade(List<Pessoa> pessoas, Integer idadeMinimaSelecionada) {
+		List<Pessoa> pessoasFiltradas = new ArrayList<>();
+
+		for (Pessoa pessoa : pessoas) {
+			if (pessoa.getIdade() >= idadeMinimaSelecionada) {
+				pessoasFiltradas.add(pessoa);
+			}
+		}
+		
+		return pessoasFiltradas;
+	}
+
+	public int contaPessoasPor(int idade) {
+		int countPessoas = 0;
+		
+		for (Pessoa pessoa : PessoaMock.getPessoas()) {
+			if (pessoa.getIdade() >= idade) {
+				countPessoas++;
+			}
+		}
+		return countPessoas;
+	}
+
+	public int contaTodasPessoas() {
+		return PessoaMock.getPessoas().size();
 	}
 }
